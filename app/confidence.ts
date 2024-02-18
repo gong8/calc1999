@@ -1,9 +1,9 @@
 import probability from "@/app/probability";
-export default function confidence(pity: number, percentage: number): number {
-  for (let i = 0; i <= 70; i++) {
+export default function confidence(pity: number, percentage: number, is5050: boolean): number {
+  for (let i = 0; i <= 140; i++) {
     // pull number
-    console.log(probability(pity, i));
-    if (probability(pity, i) >= percentage) return i;
+    console.log(probability(pity, i, is5050));
+    if (probability(pity, i, is5050) >= percentage) return i;
   }
   return 0;
 }

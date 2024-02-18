@@ -7,22 +7,23 @@ import expected from './expected'
 import confidence from './confidence'
 
 
-import {ChakraProvider, Heading, Input, VStack, Box, HStack, Text, Grid, GridItem} from '@chakra-ui/react'
+import {ChakraProvider, Heading, Input, VStack, Box, HStack, Text, Grid, GridItem, Switch} from '@chakra-ui/react'
 import {useEffect} from "react";
 
 export default function Home() {
   const [pity, setPity] = React.useState(0);
   const [pulls, setPulls] = React.useState(0);
   const [chance, setChance] = React.useState(0);
+  const [is5050, setIs5050] = React.useState(false);
   const [prob, setProb] = React.useState(0);
   const [expect, setExpect] = React.useState(0);
   const [conf, setConf] = React.useState(0);
 
   useEffect(() => {
-    setProb(probability(pity, pulls));
-    setExpect(expected(pity));
-    setConf(confidence(pity, chance));
-  }, [pity, pulls, chance]);
+    setProb(probability(pity, pulls, is5050));
+    setExpect(expected(pity, is5050));
+    setConf(confidence(pity, chance, is5050));
+  }, [pity, pulls, chance, is5050]);
   return (
     <ChakraProvider>
       <Box margin={"2em"}>
@@ -45,6 +46,14 @@ export default function Home() {
 
           <GridItem display={"flex"} alignItems={"center"}>
             <Input onChange={(ev) => setPulls(+ev.target.value)} placeholder={"input number of pulls"}></Input>
+          </GridItem>
+
+          <GridItem display={"flex"} alignItems={"center"}>
+            <Text noOfLines={1}>Is there a 50/50?</Text>
+          </GridItem>
+
+          <GridItem display={"flex"} alignItems={"center"}>
+            <Switch onChange={(ev) => setIs5050(ev.target.checked)}></Switch>
           </GridItem>
 
 
