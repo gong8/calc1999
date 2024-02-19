@@ -4,7 +4,7 @@ function singleChance(pull: number): number {
 }
 
 export default function probability(pity: number, pulls: number, is5050: boolean): number {
-  if (pulls >= 70) return is5050 ? probability(0, pulls - 1, false) * 0.5 + 1 * 0.5 : 1;
+  if (pity >= 70) return is5050 ? probability(0, pulls - 1, false) * 0.5 + 1 * 0.5 : 1;
   if (pulls <= 0) return 0;
   let chance: number = singleChance(pity + 1);
   if (is5050) {
