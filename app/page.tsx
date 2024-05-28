@@ -6,9 +6,9 @@ import probability from './probability'
 import expected from './expected'
 import confidence from './confidence'
 
-
 import {ChakraProvider, Heading, Input, VStack, Box, HStack, Text, Grid, GridItem, Switch} from '@chakra-ui/react'
 import {useEffect} from "react";
+
 
 export default function Home() {
   const [pity, setPity] = React.useState(0);
@@ -26,9 +26,10 @@ export default function Home() {
   }, [pity, pulls, chance, is5050]);
   return (
     <ChakraProvider>
+
       <Box margin={"2em"}>
         <Heading>
-          Reverse: 1999 Pity Calculator
+          Wuthering Waves Pity Calculator
         </Heading>
         <Grid gridTemplateColumns={'0.5fr 2fr'} width={"80%"} marginTop={"2.5em"}>
           <GridItem display={"flex"} alignItems={"center"}>

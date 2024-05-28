@@ -1,4 +1,4 @@
-// File: /Users/gong/Programming/JavaScript/React/calc1999/app/layout.tsx
+// File: /Users/gong/Programming/JavaScript/React/wwcalc/app/layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
